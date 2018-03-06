@@ -1,0 +1,25 @@
+mixin newsForm(news = {})
+  form(action=`/addnews/${news._id || ''}` method="POST" class="card")
+    label(for="name") Название
+    input(type="text" name="name" value=news.name)
+    label(for="nameSlug") Slug Статьи
+    input(type="text" name="nameSlug" value=news.nameSlug)
+    label(for="venue") Место
+    input(type="text" name="venue" value=news.venue)
+    label(for="venueSlug") Venue Slug
+    input(type="text" name="venueSlug" value=news.venueSlug)
+    label(for="date") Дата мероприятия
+    input(type="date" name="date" value=news.date)
+    label(for="metaTitle") Meta Title
+    input(type="text" name="metaTitle" value=news.metaTitle)
+    label(for="metaDescr") Meta Description
+    input(type="text" name="metaDescr" value=news.metaDescr)
+    label(for="body") Описание
+    textarea(name="body")= news.body
+    //- Image Upload
+    label(for="photo") Photo
+      input(type="file" name="photo" id="photo" accept="image/jpg, image/jpeg, image/png")
+      if news.photo
+        img(src=`/uploads/${news.photo}`, alt=news.name, width=200)
+    
+    input(type="submit" value="Сохранить" class="button")

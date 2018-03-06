@@ -1,0 +1,16 @@
+extends layout
+
+include mixins/_newsForm
+
+block meta
+  meta(charset="UTF-8")
+  title= `${title} | ${h.siteName}`
+  meta(name="description" content=`${metaDescription}`)
+  link(rel="canonical" href=`https://topkovorking.ru/addnews`)
+  link(rel='stylesheet', href='/dist/style.css')
+  link(rel="shortcut icon" type="image/png" href="/images/icons/crownn.png")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+block content
+  .inner
+    h2 #{title}
+    +newsForm(news)

@@ -1,0 +1,130 @@
+.front-header {
+  background: #fff;
+  padding: 2rem 2rem 2rem;
+  margin: 2rem 0;
+  ul li {
+    list-style: none;
+  }
+  .front-header-news {
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0 0 4px;
+    font-weight: 400;
+    font-size: 16px;
+    display: inline-block;
+    border-bottom: 3px solid #FFC40E;
+    top: 3px;
+    position: relative;
+  }
+  .events-stream {
+    border-top: 1px solid gray;
+  }
+    &__container {
+      width: 70%;
+      margin: 0 auto;
+      text-align: center;
+      .front-page-heading {
+        color: #fff;
+        padding: 0;
+        position: relative;
+        z-index: 2;
+        display: inline-block;
+        line-height: 1.1;
+        text-transform: uppercase;
+        font-family: 'robotomedium';
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 4rem;
+        margin-top: 20px;
+        letter-spacing: 1px;
+        text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+      }
+
+      .front-page-heading::before {
+        content: '';
+        position: absolute;
+        height: 35%;
+        -webkit-transform: translateY(90%) rotate(-0.3deg);
+        transform: translateY(90%) rotate(-0.3deg);
+        width: 102%;
+        background: #1b1b1b;
+        left: -1%;
+        z-index: -1;
+        box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        height: 100%;
+        -webkit-transform: translateY(0) rotate(-0.3deg);
+        transform: translateY(0) rotate(-0.3deg);
+      }
+      .front-page-heading::after {
+        content: '';
+        display: block;
+        background: #ffc600;
+        position: absolute;
+        width: 100%;
+        height: 102%;
+        top: -1%;
+        z-index: -2;
+        -webkit-transform: rotate(0.3deg);
+        transform: rotate(0.3deg);
+      }
+    }
+
+  p {
+    margin-top: 0;
+    line-height: 1.15;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+
+}
+
+.welcome {
+  overflow: hidden;
+  height: 80vh;
+  max-height: 500px;
+  background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,.5),rgba(0,0,0,.5)),url(https://res.cloudinary.com/dlmeqtsfq/image/upload/w_900,h_500,q_auto/v1520092939/topkovorking/main-img-900x500.jpg);
+  background-image: linear-gradient(180deg,rgba(0,0,0,.5),rgba(0,0,0,.5)),url(https://res.cloudinary.com/dlmeqtsfq/image/upload/w_900,h_500,q_auto/v1520092939/topkovorking/main-img-900x500.jpg);
+  background-position: 0 0,50% 75%;
+  background-size: auto,cover;
+  background-repeat: repeat,no-repeat;
+  padding: 8% 2%;
+  color: #fff;
+}
+
+
+
+.disclosure {
+  border-left: 2px solid #FFC40E;
+}
+
+.strong-rub {
+  border-bottom: 1px solid #FFC40E;
+}
+
+@media all and (max-width: 640px) {
+  .front-header__container {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 520px) {
+  .front-header__container {
+    h1{
+      font-size: 3rem;
+    }
+  }
+  .welcome {
+    max-height: 400px;
+  }
+}
+
+@media all and (max-width: 380px) {
+  .front-header__container {
+    h1{
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.8rem;
+    }
+  }
+}

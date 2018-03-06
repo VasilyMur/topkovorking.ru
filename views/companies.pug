@@ -1,0 +1,34 @@
+extends layout
+
+include mixins/_companyCard
+include mixins/_pagination
+include mixins/_miningCalculator
+include mixins/_subwaySearch
+include mixins/_newsCard
+
+block content
+  .inner
+    .front-header.welcome
+      .front-header__container
+        h1.front-page-heading  Коворкинги Москвы
+        p Отбираем и Рассказываем про Лучшие Коворкинги для Работы в Городе
+        +subwaySearch(companies)
+
+    .front-header
+      h2.front-header-news Предстоящие Мероприятия
+      .events-stream
+      each n in news
+        +newsCard(n)
+
+    h2 Коворкинги по Огругам
+    ul.tags
+      each t in tagsEng
+        li.tag
+          a.tag__link(href=`/okrug/${(t.slg)}`)
+            span.tag__text= t._id
+            span.tag__count= t.count
+    .companies
+      each company in companies
+        +companyCard(company)
+    +pagination(page, pages)
+

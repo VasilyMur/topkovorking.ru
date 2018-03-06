@@ -1,0 +1,11 @@
+mixin newsCard(news = {})
+
+  .news__block
+    - const postDate = h.moment.locale("ru")
+    h3
+      a(href=`/news/${news.slug}`)= news.name
+    p= `Дата: ${h.moment(news.date).format('LL')} (${h.moment(news.date, "YYYYMMDD").fromNow()})`
+    p Место: 
+      a(href=`/companies/${news.venueSlug}`) #{news.venue}
+    if user && news.author.equals(user._id)
+      a(href=`/news/${news._id}/edit`) Edit

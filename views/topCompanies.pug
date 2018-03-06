@@ -1,0 +1,32 @@
+extends layout
+
+block meta
+  meta(charset="UTF-8")
+  title= `Рейтинг Коворкингов | ${h.siteName}`
+  meta(name="description" content=`Рейтинг коворкингов основан на оценках и отзывах посетителей ${h.siteName}. Список лучших коворкингов. Поставь свою оценку!`)
+  link(rel="canonical" href=`https://topkovorking.ru/top`)
+  link(rel='stylesheet', href='/dist/style.css')
+  link(rel="shortcut icon" type="image/png" href="/images/icons/crownn.png")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+
+block content
+  .inner
+    .front-header
+      h1 Топ #{companies.length} Коворкингов
+      p Рейтинг коворкингов формируется на базе <strong>оценок</strong> наших пользователей. Чтобы оценить коворкинг и оставить отзыв требуется очень <strong>простая</strong> <a href="https://topkovorking.ru/register">регистрация</a>!
+    table.table
+      thead
+       td Фото
+       td Место
+       td Название
+       td Кол-во Отзывов
+       td Средняя Оценка
+      each company, i in companies
+        tr
+          td
+            a(href=`/companies/${company.slug}`)
+              img(width=200 src=`/uploads/${company.photo || 'company.jpg'}` alt=company.name)
+          td #{i + 1}
+          td: a(href=`/companies/${company.slug}`)= company.name
+          td= company.reviews.length
+          td #{Math.round(company.averageRating * 10) / 10} / 5

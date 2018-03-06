@@ -1,0 +1,24 @@
+.news {
+    &__block {
+        padding: 15px 0 15px 0;
+        border-bottom: solid 1px #e8e8e8;
+        h3 {
+            margin: 0;
+            line-height: 1.4;
+            margin-bottom: 0;
+            font-size: 1.6rem;
+            letter-spacing: 0.5px;
+        }
+        p {
+            margin: 0;
+            line-height: 1.2;
+            font-size: 1.4rem;
+        }
+        a {
+            border-bottom: 0;
+          }
+        a:hover {
+        color: #ff4b33;
+        }
+    }
+}

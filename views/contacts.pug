@@ -1,0 +1,26 @@
+extends layout
+
+block meta
+  meta(charset="UTF-8")
+  title= `Контакты Компании | ${h.siteName}`
+  meta(name="description" content=`Контакты компании ${h.siteName}. Используйте адрес электронной почты, чтобы связаться с нами в любое время.`)
+  link(rel="canonical" href=`https://topkovorking.ru/contacts`)
+  link(rel='stylesheet', href='/dist/style.css')
+  link(rel="shortcut icon" type="image/png" href="/images/icons/crownn.png")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+block content
+    .inner
+        .front-header
+            h1 Компания Topkovorking - Контакты
+        .front-header
+            address   <strong>Адрес:</strong> 119270, Москва, Лужнецкая набережная 2/4 стр. 4
+            p <strong>Время работы:</strong> Понедельник - Пятница с 10:00 до 18:00 
+            p Все вопросы отправляйте на адрес: 
+                a(href="mailto:topkovorking@yandex.ru") topkovorking@yandex.ru
+        .front-header
+            script(type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ab0e3fbd680a80eced83c266247c2bdb46d863f926f6d174b2d500c3a87622d16&amp;width=100%&amp;height=400&amp;lang=ru_RU&amp;scroll=true")
+            
+
+
+
+           

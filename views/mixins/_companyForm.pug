@@ -1,0 +1,39 @@
+mixin companyForm(company = {})
+  form(action=`/add/${company._id || ''}` method="POST" class="card" enctype="multipart/form-data")
+    label(for="name") Название
+    input(type="text" name="name" value=company.name)
+    label(for="priceMin") Минимальная стоимость
+    input(type="text" name="priceMin" value=company.priceMin)
+    label(for="priceMax") Максимальная стоимость
+    input(type="text" name="priceMax" value=company.priceMax)
+    .search__subway
+      label(for="subway") Метро
+      input(type="text" id="subway" name="subway" value=company.subway)
+      .search__results--subway
+        ul
+    label(for="description") Описание
+    textarea(name="description")= company.description
+    label(for="url") Адрес Сайта
+    input(type="url" name="url" value=company.url placeholder="http://sitename.ru")
+    label(for="tel") Телефон
+    input(type="tel" name="tel" value=company.tel placeholder="7-495-555-5555")
+    //- Image Upload
+    label(for="photo") Photo
+      input(type="file" name="photo" id="photo" accept="image/jpg, image/jpeg, image/png")
+      if company.photo
+        img(src=`/uploads/${company.photo}`, alt=company.name, width=200)
+    //- address, lng and lat
+    label(for="address") Адрес
+    input(type="text" id="address" name="location[address]" value=(company.location && company.location.address))
+    label(for="lng") Долгота
+    input(type="text" id="lng" name="location[coordinates][0]" value=(company.location && company.location.coordinates[0]) required)
+    label(for="lat") Широта
+    input(type="text" id="lat" name="location[coordinates][1]" value=(company.location && company.location.coordinates[1]) required)
+    - const choices = ['Центральный', 'Северный', 'Северо-Восточный', 'Восточный', 'Юго-Восточный', 'Южный', 'Юго-Западный', 'Западный', 'Северо-Западный', 'Зеленоградский']
+    - const tags = company.tags || []
+    ul.tags
+      each choice in choices
+        .tag.tag__choice
+          input(type="checkbox" id=choice value=choice name="tags" checked=(tags.includes(choice)))
+          label(for=choice) #{choice}
+    input(type="submit" value="Сохранить" class="button")

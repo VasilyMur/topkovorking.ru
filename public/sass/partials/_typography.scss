@@ -1,0 +1,107 @@
+@font-face {
+  font-family: 'robotolight';
+  src: url('/fonts/roboto-light-webfont.woff2') format('woff2'),
+       url('/fonts/roboto-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'robotomedium';
+  src: url('/fonts/roboto-medium-webfont.woff2') format('woff2'),
+       url('/fonts/roboto-medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'robotomedium_italic';
+  src: url('/fonts/roboto-mediumitalic-webfont.woff2') format('woff2'),
+       url('/fonts/roboto-mediumitalic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'robotoregular';
+  src: url('/fonts/roboto-regular-webfont.woff2') format('woff2'),
+       url('/fonts/roboto-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-size:10px;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'robotoregular', sans-serif;
+  font-weight: 400;
+  color:$black;
+}
+
+h1, h2, h3, h4, h5, h6, {
+  font-size: 2rem;
+  font-family: 'robotoregular', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0px;
+  margin: 0.5rem 0 2rem;
+}
+
+a {
+  text-decoration: none;
+  color:$black;
+  border-bottom: 2px solid #ecd018;
+}
+
+p {
+  line-height: 2;
+  font-size: 1.6rem;
+}
+
+.title {
+  word-wrap: break-word;
+  position: relative;
+  z-index: 2;
+  margin:0;
+  font-size: 26px;
+  z-index: 2;
+  line-height:1.1;
+  top: 5px;
+  //transform: skew(0, -3deg);
+  &--long {
+    font-size: 30px;
+  }
+  &:before {
+    content: '';
+    width:50px;
+    left:0;
+    top:0;
+    height:100%;
+    // top:10%;
+    display: block;
+    position: absolute;
+    z-index: -1;
+    transform:skew(-5deg)
+  }
+  line-height:1.1;
+  // inline link inside
+  a {
+    border-bottom: 0;
+    $yellowa: rgba($yellow,0.8);
+    //background-image: linear-gradient(to right, $yellowa 100%, $yellowa 50%);
+    background: #ecd018;
+    padding: 0 5px;
+  }
+}
+
+.title--single {
+  max-width: 600px;
+  margin-top: -9rem;
+  font-size: 6rem;
+  text-align: center;
+}

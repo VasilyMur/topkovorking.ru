@@ -1,0 +1,18 @@
+extends layout
+
+include mixins/_loginForm
+include mixins/_forgot
+
+block meta
+  meta(charset="UTF-8")
+  title= `Страница Входа на Сайт | ${h.siteName}`
+  meta(name="description" content=`Введите свой пароль для входа на сайт ${h.siteName} и вы сможете оставлять обзоры и ставить оценки.`)
+  link(rel="canonical" href=`https://topkovorking.ru/login`)
+  link(rel='stylesheet', href='/dist/style.css')
+  link(rel="shortcut icon" type="image/png" href="/images/icons/crownn.png")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+
+block content
+  .inner
+    +loginForm()
+    +forgotForm()

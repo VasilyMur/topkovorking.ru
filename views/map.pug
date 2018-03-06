@@ -1,0 +1,18 @@
+extends layout
+
+block meta
+  meta(charset="UTF-8")
+  title= `Карта Коворкингов с Адресами | ${h.siteName}`
+  meta(name="description" content=`Карта коворкингов ${h.siteName} с адресами и фотографиями. Найди свой коворкинг на интерактивной карте.`)
+  link(rel="canonical" href=`https://topkovorking.ru/map`)
+  link(rel='stylesheet', href='/dist/style.css')
+  link(rel="shortcut icon" type="image/png" href="/images/icons/crownn.png")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+block content
+  .inner
+    h1 #{title}
+    .map
+      .autocomplete
+        input.autocomplete__input(type="text" placeholder="Поиск..." name="geolocate")
+      #map
+        p Загрузка карты...

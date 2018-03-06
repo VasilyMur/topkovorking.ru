@@ -1,0 +1,55 @@
+extends layout
+
+include mixins/_reviewForm
+include mixins/_review
+
+block meta
+  meta(charset="UTF-8")
+  title= `Коворкинг ${company.name} - адрес, телефон, фотография, отзывы и цены на посещение | ${h.siteName}`
+  meta(name="description" content=`Коворкинг ${company.name} около метро ${company.subway}, ${company.tags[0]} округ - незакрепленное рабочее место от ${company.priceMin} в месяц. Адрес, фото и отзывы посетителей сайта ${h.siteName}.`)
+  link(rel="canonical" href=`https://topkovorking.ru/companies/${company.name}`)
+  link(rel='stylesheet', href='/dist/style.css')
+  link(rel="shortcut icon" type="image/png" href="/images/icons/crownn.png")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+
+block content
+  .single
+    .single__hero
+      - const imgAlt = title ? `Компания ${title}` : ' '
+      - const compImg = company.photo ? `/uploads/${company.photo}` : 'https://res.cloudinary.com/dlmeqtsfq/image/upload/v1517219087/company_oaczb1.jpg'
+      img.single__image(src=`${compImg}` alt=`${imgAlt}`)
+      h2.title.title--single
+        a(href=`/companies/${company.slug}`) #{title}
+  .single__details.inner
+    img.single__map(src=h.staticMap(company.location.coordinates))
+    .single__location
+      address= company.location.address
+      a(class="single__location--subway" href=`/metro/${company.subway}`)= `м. ${company.subway.charAt(0).toUpperCase() + company.subway.slice(1)}`
+      a.single__location--telurl(href=`tel:${company.tel}`)= `Тел.: ${company.tel}`
+      a.single__location--telurl(href=`${company.url}` rel="nofollow")= `Сайт: ${company.url}`
+
+    p= company.description
+    .div <strong>Стоимость</strong> рабочего места в <strong>месяц</strong>:
+    ul
+      li От <strong>#{company.priceMin}</strong> - незакрепленное рабочее место
+      li До <strong>#{company.priceMax}</strong> - закрепленное место с дополнительными опциями (почтовое обслуживание и др.).
+    
+    if company.tags
+      ul.tags
+        each tag in company.tags
+          li.tag
+            a.tag__link(href=`/okrug/${h.slugify(tag).toLowerCase()}`)
+              span.tag__text= tag
+
+    .single__slogan 
+      a(href="https://topkovorking.ru/register") Зарегистрируйся 
+      |, оставь свой отзыв и поставь оценку! Помоги хорошим людям!
+    
+    if user
+      +reviewForm(company)
+
+    if company.reviews
+      .reviews
+        each review in company.reviews
+          .review
+            +review(review)

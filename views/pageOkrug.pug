@@ -1,0 +1,33 @@
+extends layout
+
+include mixins/_companyCard
+include mixins/_paginationOkrug
+
+block meta
+  meta(charset="UTF-8")
+  title= `Коворкинги - ${tag} округ с адресами и отзывами | ${h.siteName}`
+  meta(name="description" content=`${tag} округ - все коворкинги на карте с адресами, фотографиями и отзывами посетителей ${h.siteName}. Удобный поиск. Заходите!`)
+  link(rel="canonical" href=`https://topkovorking.ru/okrug/${tagOriginal}`)
+  link(rel='stylesheet', href='/dist/style.css')
+  link(rel="shortcut icon" type="image/png" href="/images/icons/crownn.png")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+
+block content
+  .inner
+    .front-header
+      h1= `Все Коворкинги - ${tag} Округ`
+      ul
+        li ✔️ Список всех коворкингов на карте Москвы с отзывами, адресами и рейтингом! 
+        li= `✔️ ${tag} Округ - мы нашли для Вас ${count} coworking пространства.`
+    ul.tags
+      each t in tagsEng
+        li.tag
+          a.tag__link(href=`/okrug/${(t.slg)}` class=(t._id === tag ? "tag__link--active" : ''))
+            span.tag__text= t._id
+            span.tag__count= t.count
+
+    .companies
+      each company in companies
+        +companyCard(company, tag, tagOriginal)
+    +paginationOkrug(page, pages, tagOriginal)
+ 

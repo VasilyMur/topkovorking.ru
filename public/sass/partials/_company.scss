@@ -1,0 +1,153 @@
+.companies {
+  display:flex;
+  flex-direction: column;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.company__main__container {
+  padding: 20px;
+  background: #fff;
+  box-shadow: $shad;
+  margin: 0 0 15px;
+}
+
+.company {
+  background:white;
+  width: 100%;
+  display: flex;
+  min-height: 160px;
+  .companyTitle {
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+    margin-top: 0;
+  }
+  .hash {
+    color: #bbbcc4;
+    font-size: 1.3rem;
+    margin: 0;
+  }
+  &__details {
+    padding-left: 2rem;
+    flex: 2;
+    p {
+      line-height: 1.2;
+      font-size: 1.5rem;
+      margin: 1rem 0 0;
+    }
+    &__container {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.3rem;
+      &--address {
+        a {
+          border-bottom: none;
+        }
+        a:hover {
+          color: #ff4b33;
+        }
+      }
+    }
+  }
+
+}
+
+.company__actions {
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.2), 0 1px 0 rgba(255,255,255,0.2);
+  margin-bottom: 50px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.company__action {
+  font-size: 10px;
+  svg {
+    width: 25px;
+    fill: white
+  }
+  &--edit {
+    a {
+      border-bottom: 0;
+    }
+  }
+}
+
+
+.company__hero {
+  position: relative;
+  padding: 0 10px 0 10px;
+  text-align: right;
+  flex: 1;
+  max-width: 160px;
+  max-height: 160px;
+  &:before {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    // background:
+    //   linear-gradient(45deg, hsla(190, 95%, 43%, 1) 0%, hsla(190, 95%, 43%, 0) 70%),
+    //   linear-gradient(135deg, hsla(219, 93%, 48%, 1) 10%, hsla(219, 93%, 48%, 0) 80%),
+    //   linear-gradient(225deg, hsla(293, 93%, 48%, 1) 10%, hsla(293, 93%, 48%, 0) 80%),
+    //   linear-gradient(315deg, hsla(130, 96%, 45%, 1) 100%, hsla(130, 96%, 45%, 0) 70%);
+    background: #000;
+    opacity: 0.6;
+    z-index: 1;
+    //clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+  }
+  img {
+    max-width: 160px;
+    height: 160px;
+    top: 0;
+    right: 0;
+    position: absolute;
+    left: 0;
+    object-fit: cover;
+    //clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+  }
+}
+
+@media all and (max-width: 740px) {
+  .companies {
+    max-width: 95%
+  }
+
+  .company__hero  {
+    display: none;
+  }
+
+  .company__main__container {
+    padding: 0;
+  }
+
+  .company {
+    padding: 20px 10px;
+  }
+
+  .company__details {
+    padding-left: 0;
+  }
+
+}
+
+
+@media all and (max-width: 440px) {
+  .company__details__container {
+    flex-direction: column;
+  }
+
+  .company__details p {
+    font-size: 1.4rem;
+  }
+
+}

@@ -1,0 +1,26 @@
+extends layout
+
+include mixins/_newsCard
+include mixins/_paginationNews
+
+block meta
+  meta(charset="UTF-8")
+  title= `Календарь мероприятий и новости коворкингов | ${h.siteName}`
+  meta(name="description" content=`Список главных мероприятий и новостей коворкингов на ${h.siteName}. Удобный выбор по датам и месту проведения.`)
+  link(rel="canonical" href=`https://topkovorking.ru/news`)
+  link(rel='stylesheet', href='/dist/style.css')
+  link(rel="shortcut icon" type="image/png" href="/images/icons/crownn.png")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+
+block content
+  .inner
+    .front-header
+      .front-header__container
+        h1 Новости Коворкингов
+    .news__container
+      each n in news
+        +newsCard(n)
+    +paginationNews(page, pages)
+
+
+    

@@ -1,0 +1,30 @@
+extends layout
+
+include mixins/_companyCard
+include mixins/_paginationMetro
+include mixins/_subwaySearch
+
+block meta
+  meta(charset="UTF-8")
+  title= `Коворкинги у метро ${tag} - адреса и отзывы | ${h.siteName}`
+  meta(name="description" content=`Все коворкинги рядом c метро ${tag} на ${h.siteName}. Удобный поиск коворкингов у станции метро с адресами, фото, отзывами и рейтингом посетителей.`)
+  link(rel="canonical" href=`https://topkovorking.ru/metro/${tag}`)
+  link(rel='stylesheet', href='/dist/style.css')
+  link(rel="shortcut icon" type="image/png" href="/images/icons/crownn.png")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+
+block content
+  .inner
+    .front-header
+      h1= `Коворкинги рядом с метро ${tag.charAt(0).toUpperCase() + tag.slice(1)}`
+      ul
+        li ✔️ Список всех коворкингов на карте Москвы с отзывами, адресами и рейтингом! 
+        li= `✔️ Мы нашли для Вас ${count} рабочих пространства у метро ${tag.charAt(0).toUpperCase() + tag.slice(1)}.`
+      .front-header__container
+        +subwaySearch(companies)
+
+    .companies
+      each company in companies
+        +companyCard(company, tag)
+    +paginationMetro(page, pages, tag)
+ 

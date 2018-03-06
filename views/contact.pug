@@ -1,0 +1,18 @@
+extends layout
+
+include mixins/_submitForm
+block meta
+  meta(charset="UTF-8")
+  title= `Добавить Новый Коворкинг | ${h.siteName}`
+  meta(name="description" content=`Добавьте коворкинг в каталог сайта ${h.siteName}. Необходимо заполнить форму и отправить запрос на добавление.`)
+  link(rel="canonical" href=`https://topkovorking.ru/submit`)
+  link(rel='stylesheet', href='/dist/style.css')
+  link(rel="shortcut icon" type="image/png" href="/images/icons/crownn.png")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+
+block content
+  .inner
+    .front-header
+      h1 #{title}
+      p Добавьте Коворкинг на сайт Topkovorking.ru!
+    +submitForm()

@@ -1,0 +1,24 @@
+extends layout
+
+block meta
+  meta(charset="UTF-8")
+  title= `Страница Регистрации на Сайте | ${h.siteName}`
+  meta(name="description" content=`Пройдите простую регистрацию на сайте ${h.siteName} и получите доступ к закрытой части сайта.`)
+  link(rel="canonical" href=`https://topkovorking.ru/register`)
+  link(rel='stylesheet', href='/dist/style.css')
+  link(rel="shortcut icon" type="image/png" href="/images/icons/crownn.png")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+
+block content
+  .inner
+    form.form(action="/register" method="POST")
+      h2 #{title}
+      label(for="name") Имя 
+      input(type="text" name="name" required)
+      label(for="email") Email 
+      input(type="email" name="email" required)
+      label(for="password") Пароль
+      input(type="password" name="password")
+      label(for="password-confirm") Подтвердить пароль
+      input(type="password" name="password-confirm")
+      input.button(type="submit" value="Регистрация")

@@ -1,0 +1,24 @@
+extends layout
+
+
+block meta
+  meta(charset="UTF-8")
+  title= `${news.name} | ${h.siteName}`
+  meta(name="description" content=`${news.name}. Мероприятие пройдет ${h.moment(news.date).format('LL')}. Успей записаться!`)
+  link(rel="canonical" href=`https://topkovorking.ru/${news.slug}`)
+  link(rel='stylesheet', href='/dist/style.css')
+  link(rel="shortcut icon" type="image/png" href="/images/icons/crownn.png")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+
+block content
+  .inner
+    .news__container
+      article
+        header.news__header
+          - const postDate = h.moment.locale("ru")
+          p.news__meta= `Опубликовано: ${h.moment(news.created).fromNow()}`
+          h1.news__title #{news.name}
+        .news__content
+          != news.body
+
+    

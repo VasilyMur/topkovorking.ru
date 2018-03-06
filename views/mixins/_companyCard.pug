@@ -1,0 +1,38 @@
+mixin companyCard(company = {})
+
+  .company__main__container
+    .company
+      .company__hero
+        .company__actions
+          if user
+            .company__action.company__action--heart
+              form.heart(method="POST" action=`/api/companies/${company._id}/heart`)
+                - const heartStrings = user.hearts.map(obj => obj.toString())
+                - const heartClass = heartStrings.includes(company._id.toString()) ? 'heart__button--hearted' : ''
+                button.heart__button(type="submit" name="heart" class=heartClass)
+                  != h.icon('like')
+          if user && company.author.equals(user._id)
+            .company__action.company__action--edit
+              a(href=`/companies/${company._id}/edit`)
+                != h.icon('pencil')
+          if company.reviews 
+            .company__action.company__action--count 
+              != h.icon('review') 
+              span= company.reviews.length
+        - const altTag = tag ? tag : ' '
+        - const compImg = company.photo ? `/uploads/${company.photo}` : 'https://res.cloudinary.com/dlmeqtsfq/image/upload/v1517219087/company_oaczb1.jpg'
+        img(src=`${compImg}` alt=`${altTag}`)
+      .company__details
+        h3.companyTitle
+          a(href=`/companies/${company.slug}`) #{company.name}
+        span.hash #{company.tags}
+        - const address = company.location.address.split(',')
+        - const addressCut = address.splice(-2, 2)
+        - const addressFinal = address.join(',')
+        .company__details__container
+          .company__details__container--address
+            a(href=`/metro/${company.subway}`)= `м. ${company.subway.charAt(0).toUpperCase() + company.subway.slice(1)}, `
+            span= addressFinal
+          .company__details__container--price
+            span= `${company.priceMin} - ${company.priceMax}`
+        p= `${company.description.split(' ').slice(0, 25).join(' ')}....`
