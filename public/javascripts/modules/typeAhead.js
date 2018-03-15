@@ -4,7 +4,7 @@ import dompurify from 'dompurify';
 function searchResultsHTML(companies) {
   return companies.map(company => {
     return `
-        <a href="/companies/${company.slug}" class="search__result">
+        <a href="/kovorking/${company.slug}" class="search__result">
           <strong>${company.name}</strong>
         </a>
     `;

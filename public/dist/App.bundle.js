@@ -2023,7 +2023,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function searchResultsHTML(companies) {
   return companies.map(function (company) {
-    return '\n        <a href="/companies/' + company.slug + '" class="search__result">\n          <strong>' + company.name + '</strong>\n        </a>\n    ';
+    return '\n        <a href="/kovorking/' + company.slug + '" class="search__result">\n          <strong>' + company.name + '</strong>\n        </a>\n    ';
   }).join('');
 };
 
@@ -2985,7 +2985,7 @@ var mapOptions = {
     markers.forEach(function (marker) {
       marker.addListener('click', function () {
 
-        var html = '\n      <div class="popup">\n        <a href="/companies/' + this.place.slug + '">\n          <img src="/uploads/' + (this.place.photo || 'company.jpg') + '" alt="' + this.place.name + '" />\n          <p>' + this.place.name + ' - ' + this.place.location.address + '</p>\n        </a>\n      </div>\n      ';
+        var html = '\n      <div class="popup">\n        <a href="/kovorking/' + this.place.slug + '">\n          <img src="/uploads/' + (this.place.photo || 'kovorking-300x200.jpg') + '" alt="' + this.place.name + '" />\n          <p>' + this.place.name + ' - ' + this.place.location.address + '</p>\n        </a>\n      </div>\n      ';
         infoWindow.setContent(html);
         infoWindow.open(map, this);
       });
@@ -3191,7 +3191,8 @@ function findMatches(wordsToMatch, stations) {
 
 function searchResultsHtml(stations) {
     return stations.map(function (station) {
-        return '\n        \n            <li class="subway__result__front" type="checkbox">\n            <span style="color: #' + station.LineColor + '">\u043C.</span> ' + station.Name + '\n            </li>\n        ';
+
+        return '\n        \n            <li class="subway__result__front">\n            <span style="color: #' + station.LineColor + '">\u25A0</span> ' + station.Name + '\n            </li>\n        ';
     }).join('');
 }
 
@@ -3228,7 +3229,8 @@ function subwayFront(searchInput) {
         subwayResults.forEach(function (result) {
 
             result.addEventListener('click', function () {
-                searchInput.value = this.innerText.replace(/м./g, '').trim();
+
+                searchInput.value = this.innerText.replace(/■/g, '').trim();
                 searchResults.innerHTML = _dompurify2.default.sanitize('');
                 return;
             });
@@ -3260,7 +3262,7 @@ function subwayFront(searchInput) {
         } else if (e.keyCode === 38) {
             next = items[items.length - 1];
         } else if (e.keyCode === 13 && current) {
-            searchInput.value = current.innerText.replace(/м./g, '').trim();
+            searchInput.value = current.innerText.replace(/■/g, '').trim();
             //searchInput.value = current.innerHTML.trim();
             searchResults.style.display = 'none';
             return;

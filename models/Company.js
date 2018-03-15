@@ -137,7 +137,7 @@ companySchema.pre('save', function(next) {
   }
 
   this.subway = this.subway.toLowerCase();
-  
+
   next();
 });
 

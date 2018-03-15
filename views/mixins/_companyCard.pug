@@ -19,20 +19,20 @@ mixin companyCard(company = {})
             .company__action.company__action--count 
               != h.icon('review') 
               span= company.reviews.length
-        - const altTag = tag ? tag : ' '
-        - const compImg = company.photo ? `/uploads/${company.photo}` : 'https://res.cloudinary.com/dlmeqtsfq/image/upload/v1517219087/company_oaczb1.jpg'
-        img(src=`${compImg}` alt=`${altTag}`)
+        - const compImg = company.photo ? `/uploads/${company.photo}` : 'https://res.cloudinary.com/dlmeqtsfq/image/upload/c_scale,h_160,q_auto,w_160/v1520498106/topkovorking-160_pu8faj.jpg'
+        img(src=`${compImg}` alt="коворкинг в москве")
       .company__details
         h3.companyTitle
-          a(href=`/companies/${company.slug}`) #{company.name}
+          a(href=`/kovorking/${company.slug}`) #{company.name}
         span.hash #{company.tags}
         - const address = company.location.address.split(',')
         - const addressCut = address.splice(-2, 2)
         - const addressFinal = address.join(',')
         .company__details__container
           .company__details__container--address
-            a(href=`/metro/${company.subway}`)= `м. ${company.subway.charAt(0).toUpperCase() + company.subway.slice(1)}, `
+            a(href=`/metro/${company.subway.toLowerCase()}`)= `м. ${company.subway.charAt(0).toUpperCase() + company.subway.slice(1)}, `
             span= addressFinal
           .company__details__container--price
             span= `${company.priceMin} - ${company.priceMax}`
-        p= `${company.description.split(' ').slice(0, 25).join(' ')}....`
+        .company__details__container--textdesc
+          != `${company.description.split(' ').slice(0, 25).join(' ')}....`

@@ -31,7 +31,7 @@ const multerOptions = {
 exports.getCompanies = async (req, res) => {
   try {
     const page = req.params.page || 1;
-    const limit = 10;
+    const limit = 15;
     const skip = (page * limit) - limit;
 
     // Query the DB for a list of all Companies
@@ -85,7 +85,7 @@ exports.getCompaniesOkrug = async (req, res) => {
   try {
     // PAGINATION
     const page = req.params.page || 1;
-    const limit = 2;
+    const limit = 10;
     const skip = (page * limit) - limit;
 
     const tagOriginal = req.params.id;
@@ -194,8 +194,8 @@ exports.createCompany = async (req, res) => {
     // *2 - setting author as referenced in Company Model -- >> populate to getCompanyBySlug
     req.body.author = req.user._id;
     const company = await (new Company(req.body)).save();
-    req.flash('success', `Компания ${company.name} сохранена! <a href="/companies/${company.slug}">Посмотреть компанию</a>`);
-    res.redirect(`/companies/${company.slug}`);
+    req.flash('success', `Компания ${company.name} сохранена! <a href="/kovorking/${company.slug}">Посмотреть компанию</a>`);
+    res.redirect(`/kovorking/${company.slug}`);
 
   } catch(err) {
       if (err.name == 'ValidationError') {
@@ -237,7 +237,7 @@ exports.updateCompany = async (req, res) => {
     req.body.location.type = 'Point';
 
     const company = await Company.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true }).exec();
-    req.flash('success', `Информация о компании <strong>${company.name}</strong> обнавлена! <a href="/companies/${company.slug}">Посмотреть компанию</a>`);
+    req.flash('success', `Информация о компании <strong>${company.name}</strong> обнавлена! <a href="/kovorking/${company.slug}">Посмотреть компанию</a>`);
     res.redirect(`/companies/${company._id}/edit`);
   } catch(err) {
       if (err.name == 'ValidationError') {
@@ -333,7 +333,7 @@ exports.searchMetro = async (req, res) => {
   try {
     // Pagination
     const page = req.params.page || 1;
-    const limit = 1;
+    const limit = 10;
     const skip = (page * limit) - limit;
 
     const tag = req.params.id;
@@ -470,6 +470,11 @@ exports.getTopCompanies = async (req, res) => {
 // About Page
 exports.about = (req, res) => {
   res.render('about', { title: 'О Целях и Команде Topkovorking.ru' });
+}; 
+
+// What is Kovorking Page
+exports.whatiskovorking = (req, res) => {
+  res.render('whatiskovorking', { title: 'Что такое коворкинг?' });
 }; 
 
 // Contacts Page

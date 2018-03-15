@@ -34,7 +34,8 @@ router.post('/add/:id',
           );
 
 // Страница Компании
-router.get('/companies/:slug', companyController.getCompanyBySlug);
+//router.get('/companies/:slug', companyController.getCompanyBySlug);
+router.get('/kovorking/:slug', companyController.getCompanyBySlug);
 
 // OKRUG PAGE and Pagination
 router.get('/okrug/:id', companyController.getCompaniesOkrug);
@@ -84,6 +85,7 @@ router.get('/hearts', authController.isLoggedIn, companyController.getHearts);
 router.post('/reviews/:id', authController.isLoggedIn, reviewController.addReview);
 router.get('/top', companyController.getTopCompanies);
 router.get('/about', companyController.about);
+router.get('/chto-takoe-kovorking', companyController.whatiskovorking);
 router.get('/contacts', companyController.contacts);
 
 router.get('/metro/:id', companyController.searchMetro);

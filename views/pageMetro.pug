@@ -18,10 +18,9 @@ block content
     .front-header
       h1= `Коворкинги рядом с метро ${tag.charAt(0).toUpperCase() + tag.slice(1)}`
       ul
-        li ✔️ Список всех коворкингов на карте Москвы с отзывами, адресами и рейтингом! 
-        li= `✔️ Мы нашли для Вас ${count} рабочих пространства у метро ${tag.charAt(0).toUpperCase() + tag.slice(1)}.`
-      .front-header__container
-        +subwaySearch(companies)
+        li - Список всех коворкингов на карте Москвы с отзывами, адресами и рейтингом! 
+        li= `- Мы нашли для Вас ${count} рабочих пространства у метро ${tag.charAt(0).toUpperCase() + tag.slice(1)}.`
+
 
     .companies
       each company in companies

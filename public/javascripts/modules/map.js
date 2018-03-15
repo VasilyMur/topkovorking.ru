@@ -41,8 +41,8 @@ function loadPlaces(map, lat = 55.7, lng = 37.6) {
 
       const html = `
       <div class="popup">
-        <a href="/companies/${this.place.slug}">
-          <img src="/uploads/${this.place.photo || 'company.jpg'}" alt="${this.place.name}" />
+        <a href="/kovorking/${this.place.slug}">
+          <img src="/uploads/${this.place.photo || 'kovorking-300x200.jpg'}" alt="${this.place.name}" />
           <p>${this.place.name} - ${this.place.location.address}</p>
         </a>
       </div>

@@ -55,9 +55,15 @@
   text-align: left;
   max-width: 300px;
   margin: 0 auto;
+  position: absolute;
+  left: 0;
+  right: 0;
   &--results {
     background: #fff;
     color: #303030;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
   }
   input[type="submit"] {
     margin-top: 5px;
@@ -68,4 +74,3 @@
       border-bottom: 1px solid #ececec;
   }
 }
-

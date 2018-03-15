@@ -16,10 +16,11 @@ function findMatches(wordsToMatch, stations) {
 
 function searchResultsHtml(stations) {
     return stations.map(station => {
+
         return `
         
-            <li class="subway__result__front" type="checkbox">
-            <span style="color: #${station.LineColor}">м.</span> ${station.Name}
+            <li class="subway__result__front">
+            <span style="color: #${station.LineColor}">■</span> ${station.Name}
             </li>
         `
     }).join('');
@@ -62,18 +63,13 @@ function subwayFront(searchInput) {
         subwayResults.forEach(result => {
 
             result.addEventListener('click', function() {
-                searchInput.value = this.innerText.replace(/м./g, '').trim();
+               
+                searchInput.value = this.innerText.replace(/■/g, '').trim();
                 searchResults.innerHTML = dompurify.sanitize('');
                 return;
             });
-
         });
-
-
- 
     });
-
-
 
     //Handle Keyboard Inputs
     searchInput.addEventListener('keyup', (e) => {
@@ -101,7 +97,7 @@ function subwayFront(searchInput) {
           } else if (e.keyCode === 38) {
             next = items[items.length - 1];
           } else if (e.keyCode === 13 && current) {
-            searchInput.value = current.innerText.replace(/м./g, '').trim();
+            searchInput.value = current.innerText.replace(/■/g, '').trim();
             //searchInput.value = current.innerHTML.trim();
             searchResults.style.display = 'none';
             return;

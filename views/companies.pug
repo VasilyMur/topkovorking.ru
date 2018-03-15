@@ -9,11 +9,15 @@ include mixins/_newsCard
 block content
   .inner
     .front-header.welcome
-      .front-header__container
-        h1.front-page-heading  Коворкинги Москвы
-        p Отбираем и Рассказываем про Лучшие Коворкинги для Работы в Городе
-        +subwaySearch(companies)
+      .search__img__container
+        img.front__single--img(src="https://res.cloudinary.com/dlmeqtsfq/image/upload/w_900,h_500,q_auto/v1520092939/topkovorking/main-img-900x500.jpg" alt="коворкинги москвы")
+        .front-header__container
+          h1.front-page-heading  Коворкинги Москвы
+          p Отбираем и Рассказываем про Лучшие Коворкинги для Работы в Городе
+          +subwaySearch(companies)
 
+    h2.what-is-coworking
+      a(href="https://topkovorking.ru/chto-takoe-kovorking") Что такое Коворкинг?
     .front-header
       h2.front-header-news Предстоящие Мероприятия
       .events-stream

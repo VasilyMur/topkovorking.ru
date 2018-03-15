@@ -8,7 +8,7 @@ mixin companyForm(company = {})
     input(type="text" name="priceMax" value=company.priceMax)
     .search__subway
       label(for="subway") Метро
-      input(type="text" id="subway" name="subway" value=company.subway)
+      input(type="text" id="subway" name="subway" autocomplete="off" value=company.subway)
       .search__results--subway
         ul
     label(for="description") Описание

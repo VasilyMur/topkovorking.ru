@@ -41,7 +41,7 @@ const promisify = require('es6-promisify');
   
 
 
-// Зашли в Раздел Добавить Компанию
+// Зашли в Раздел Добавить Новость
 exports.addNews = (req, res) => {
     res.render('editNews', {title: 'Добавить Новость', metaDescription: 'Добавить Новость на сайт topkovorking.ru'});
   };

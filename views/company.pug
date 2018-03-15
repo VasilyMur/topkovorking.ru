@@ -16,7 +16,7 @@ block content
   .single
     .single__hero
       - const imgAlt = title ? `Компания ${title}` : ' '
-      - const compImg = company.photo ? `/uploads/${company.photo}` : 'https://res.cloudinary.com/dlmeqtsfq/image/upload/v1517219087/company_oaczb1.jpg'
+      - const compImg = company.photo ? `/uploads/${company.photo}` : 'https://res.cloudinary.com/dlmeqtsfq/image/upload/c_scale,h_500,q_auto,w_1400/v1520351740/kovorking-single-1400x500_zeqdvo.jpg'
       img.single__image(src=`${compImg}` alt=`${imgAlt}`)
       h2.title.title--single
         a(href=`/companies/${company.slug}`) #{title}
@@ -28,12 +28,13 @@ block content
       a.single__location--telurl(href=`tel:${company.tel}`)= `Тел.: ${company.tel}`
       a.single__location--telurl(href=`${company.url}` rel="nofollow")= `Сайт: ${company.url}`
 
-    p= company.description
+    .single__text__content
+      != company.description
     .div <strong>Стоимость</strong> рабочего места в <strong>месяц</strong>:
-    ul
+    ul.single__price__range
       li От <strong>#{company.priceMin}</strong> - незакрепленное рабочее место
       li До <strong>#{company.priceMax}</strong> - закрепленное место с дополнительными опциями (почтовое обслуживание и др.).
-    
+
     if company.tags
       ul.tags
         each tag in company.tags

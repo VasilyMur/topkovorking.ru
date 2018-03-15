@@ -50,7 +50,7 @@
     background: white;
     // clip-path: polygon(0px 2vw, 100% 0, 100% calc(100% - 2vw), 0% 100%);
     position: relative;
-    padding: 3rem;
+    padding: 3rem 2rem;
     margin-top: -10rem;
     box-shadow: 0 0 10px 2px rgba(0,0,0,0.15);
     z-index: 2;
@@ -59,10 +59,21 @@
     }
     ul li {
       list-style: none;
+      line-height: 2;
+    }
+    .single__text__content ul li::before {
+      content: '■';
+      margin-right: 0.5rem;
+      color: #ffc600;
+    }
+    .single__price__range li {
+      border-bottom: 1px solid #e5e5e5;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
     }
   }
   &__map {
-    width: calc(100% + 6rem);
+    width: calc(100% + 5rem);
     max-width: none;
     margin-top: -3rem;
     margin-left: -3rem;
