@@ -84,7 +84,11 @@ router.get('/map', companyController.mapPage);
 router.get('/hearts', authController.isLoggedIn, companyController.getHearts);
 router.post('/reviews/:id', authController.isLoggedIn, reviewController.addReview);
 router.get('/top', companyController.getTopCompanies);
+
 router.get('/about', companyController.about);
+router.post('/receive', companyController.receive);
+
+
 router.get('/chto-takoe-kovorking', companyController.whatiskovorking);
 router.get('/contacts', companyController.contacts);
 
@@ -112,6 +116,9 @@ router.get('/news/:slug', newsController.getNewsBySlug);
 /*
   API
 */
+
+//my test subway API
+router.get('/api/search/subway', companyController.searchCompSubway);
 
 router.get('/api/search', companyController.searchCompanies);
 router.get('/api/companies/near', companyController.mapCompanies);

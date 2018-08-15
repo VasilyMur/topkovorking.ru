@@ -15,7 +15,7 @@ body {
     width: 100%; }
 
 .inner {
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto; }
 
 html {
@@ -437,43 +437,19 @@ template {
 [hidden] {
   display: none; }
 
-@font-face {
-  font-family: 'robotolight';
-  src: url("/fonts/roboto-light-webfont.woff2") format("woff2"), url("/fonts/roboto-light-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'robotomedium';
-  src: url("/fonts/roboto-medium-webfont.woff2") format("woff2"), url("/fonts/roboto-medium-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'robotomedium_italic';
-  src: url("/fonts/roboto-mediumitalic-webfont.woff2") format("woff2"), url("/fonts/roboto-mediumitalic-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal; }
-
-@font-face {
-  font-family: 'robotoregular';
-  src: url("/fonts/roboto-regular-webfont.woff2") format("woff2"), url("/fonts/roboto-regular-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal; }
-
 html {
   font-size: 10px; }
 
 body {
   font-size: 1.6rem;
-  font-family: 'robotoregular', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   color: #303030; }
 
 h1, h2, h3, h4, h5, h6 {
   font-size: 2rem;
-  font-family: 'robotoregular', sans-serif;
-  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   letter-spacing: 0px;
   margin: 0.5rem 0 2rem; }
 
@@ -547,12 +523,13 @@ p {
     display: -ms-flexbox;
     display: flex; }
   .nav__link {
-    font-family: 'robotolight', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
     background: #303030;
     color: white;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     text-transform: uppercase;
-    padding: 1.2rem 2rem 1rem 2rem;
+    padding: 1rem 2rem 1rem 2rem;
     display: block;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -667,7 +644,7 @@ p {
   background: #FFC40E;
   color: #303030;
   font-family: 'Roboto', sans-serif;
-  font-weight: 700; }
+  font-weight: 400; }
 
 .avatar {
   min-width: 50px;
@@ -705,10 +682,10 @@ pre.error {
     left: 0; }
   .search__input {
     font-size: 30px;
-    background: none;
-    color: white;
+    background: #fff;
     outline: 0;
-    border: 0; }
+    color: #303030;
+    border: 15px solid #303030; }
   .search__result {
     padding: 10px;
     display: block;
@@ -846,7 +823,8 @@ select {
         margin-bottom: 15px; }
         .calculator__container .container__left--form .form-group label {
           padding: 0 0 5px;
-          font-family: 'robotomedium';
+          font-family: 'Roboto', sans-serif;
+          font-weight: 500;
           font-size: 14px; }
         .calculator__container .container__left--form .form-group input {
           height: 34px;
@@ -1606,7 +1584,8 @@ select {
     text-align: center; }
 
 .footer {
-  font-family: 'robotolight', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   background: #303030;
   padding: 20px;
   color: white; }
@@ -1684,7 +1663,7 @@ select {
     border-top: 1px solid gray; }
   .front-header__container {
     width: 70%;
-    margin: 10% auto 0;
+    margin: 7% auto 0;
     text-align: center;
     position: relative;
     z-index: 2;
@@ -1697,7 +1676,8 @@ select {
       display: inline-block;
       line-height: 1.1;
       text-transform: uppercase;
-      font-family: 'robotomedium';
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
       text-align: center;
       margin-bottom: 30px;
       font-size: 4rem;
@@ -1736,8 +1716,9 @@ select {
   .front-header p {
     margin-top: 0;
     line-height: 1.15;
-    margin-bottom: 2rem;
-    font-size: 2rem; }
+    margin-bottom: 2rem; }
+  .front-header .front-page-subheading {
+    font-size: 2.5rem; }
 
 .what-is-coworking {
   width: 100%;
@@ -1757,7 +1738,7 @@ select {
 
 .search__img__container {
   position: relative;
-  min-height: 500px;
+  min-height: 300px;
   overflow: hidden; }
 
 .search__img__container::before {

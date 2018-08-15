@@ -21,16 +21,22 @@ function typeAhead(search) {
     // If there is no value - quit it!
     if(!this.value) {
       searchResults.style.display = 'none';
+      searchInput.style.borderBottom = "15px solid #303030";
       return; // stop!
     };
     //Show the search results!
     searchResults.style.display = 'block';
+    searchInput.style.borderBottom = "15px solid #fff";
 
-    axios.get(`/api/search?q=${this.value}`).then(res => {
-      if(res.data.length) {
-        searchResults.innerHTML = dompurify.sanitize(searchResultsHTML(res.data));
+    axios.get(`/api/companies/near?lat=55.7&lng=37.6`).then(res => {
+      const findMatch = res.data.filter(res => {
+        const regex = new RegExp(`${this.value}`, 'gi');
+        return res.name.match(regex)
+      }).slice(0, 11);
+      if(findMatch.length > 0) {
+        searchResults.innerHTML = dompurify.sanitize(searchResultsHTML(findMatch));
         return;
-      }
+      } 
       // tell them nothing came back
       searchResults.innerHTML = dompurify.sanitize(`<div class="search__result">Результатов для ${this.value} не найдено!</div>`);
     }).catch(err => {

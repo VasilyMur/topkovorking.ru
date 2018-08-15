@@ -2039,14 +2039,20 @@ function typeAhead(search) {
     // If there is no value - quit it!
     if (!this.value) {
       searchResults.style.display = 'none';
+      searchInput.style.borderBottom = "15px solid #303030";
       return; // stop!
     };
     //Show the search results!
     searchResults.style.display = 'block';
+    searchInput.style.borderBottom = "15px solid #fff";
 
-    _axios2.default.get('/api/search?q=' + this.value).then(function (res) {
-      if (res.data.length) {
-        searchResults.innerHTML = _dompurify2.default.sanitize(searchResultsHTML(res.data));
+    _axios2.default.get('/api/companies/near?lat=55.7&lng=37.6').then(function (res) {
+      var findMatch = res.data.filter(function (res) {
+        var regex = new RegExp('' + _this.value, 'gi');
+        return res.name.match(regex);
+      }).slice(0, 11);
+      if (findMatch.length > 0) {
+        searchResults.innerHTML = _dompurify2.default.sanitize(searchResultsHTML(findMatch));
         return;
       }
       // tell them nothing came back

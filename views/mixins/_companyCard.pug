@@ -23,7 +23,7 @@ mixin companyCard(company = {})
         img(src=`${compImg}` alt="коворкинг в москве")
       .company__details
         h3.companyTitle
-          a(href=`/kovorking/${company.slug}`) #{company.name}
+          a(href=`/kovorking/${company.slug}` title=`${company.name}`) #{company.name}
         span.hash #{company.tags}
         - const address = company.location.address.split(',')
         - const addressCut = address.splice(-2, 2)

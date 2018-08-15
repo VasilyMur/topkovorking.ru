@@ -3,11 +3,12 @@ html
   head
     block meta
       meta(charset="UTF-8")
-      title= `Коворкинги Москвы | ${h.siteName}`
+      title= `Коворкинги Москвы - более 30 коворкингов | ${h.siteName}`
       meta(name="description" content="Коворкинги Москвы 2018 - на карте города с адресами, отзывами и рейтингом. Разбивка coworking пространств по округам и станциям метро.")
       link(rel="canonical" href="https://topkovorking.ru")
       link(rel='stylesheet', href='/dist/style.css')
-      link(rel="shortcut icon" type="image/png" href="/images/icons/crownn.png")
+      link(href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet")
+      link(rel="shortcut icon" type="image/png" alt="Topkovorking.ru" href="https://res.cloudinary.com/dlmeqtsfq/image/upload/c_scale,h_256,q_auto,w_256/v1533625058/topkovorking/company-logo/crownn.png")
       meta(name="viewport" content="width=device-width, initial-scale=1")
       meta(name="yandex-verification" content="dab98d5d02a811f6")
       meta(name="google-site-verification" content="cxTKesRq2HkD0vaPKHISvrIKHQacdaMoAKFKut1TQKk")
@@ -26,7 +27,7 @@ html
                   span #{item.title}
           .nav__section.nav__section--search
             .search
-              input.search__input(type="text" placeholder="Ввод..." name="search")
+              input.search__input(type="text" placeholder="Введите название коворкинга..." name="search")
               .search__results
           ul.nav__section.nav__section--user
             if user

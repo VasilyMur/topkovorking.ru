@@ -7,6 +7,8 @@ const nodemailer = require('nodemailer');
 const slugify = require('slugify');
 
 
+
+
 // upload photos package
 const multer = require('multer');
 // resize package
@@ -128,7 +130,7 @@ exports.getCompaniesOkrug = async (req, res) => {
     //Awit All Promises
     const [companies, okrugCount] = await Promise.all([companiesPromise, countPromise]);
     const { count } = okrugCount[0];
-   
+
 
     const pages = Math.ceil(count / limit);
     if (!companies.length && skip) {
@@ -147,7 +149,7 @@ exports.getCompaniesOkrug = async (req, res) => {
       }
     });
 
-  
+
 
     res.render('pageOkrug', { tag, companies, tags, page, pages, tagOriginal, tagsEng, count });
 
@@ -360,7 +362,7 @@ exports.searchMetro = async (req, res) => {
       return;
     }
 
-  
+
     res.render('pageMetro', { companies, tag, count, page, pages });
 
   } catch (e) {
@@ -391,6 +393,19 @@ exports.searchCompanies = async (req, res) => {
     res.render('error', {message:'Something went wrong'});
   }
 };
+
+//MY TEST API SUBWAY Search
+exports.searchCompSubway = async (req, res) => {
+  try {
+    const companies = await Company
+      .find({ subway: req.query.q });
+
+    res.json(companies);
+  } catch (e) {
+    res.render('error', {message:'Something went wrong'});
+  }
+
+}
 
 // API interface to search for nearby Companies on GOOGLE Maps
 exports.mapCompanies = async (req, res) => {
@@ -467,18 +482,34 @@ exports.getTopCompanies = async (req, res) => {
   res.render('topCompanies', { title: 'Рейтинг Компаний', companies });
 };
 
-// About Page
-exports.about = (req, res) => {
-  res.render('about', { title: 'О Целях и Команде Topkovorking.ru' });
-}; 
-
 // What is Kovorking Page
 exports.whatiskovorking = (req, res) => {
   res.render('whatiskovorking', { title: 'Что такое коворкинг?' });
-}; 
+};
 
 // Contacts Page
 exports.contacts = (req, res) => {
   res.render('contacts', { title: 'Компания Topkovorking.ru - Контакты' });
-}; 
+};
+
+// About Page
+exports.about = (req, res) => {
+  res.render('about', { title: 'О Целях и Команде Topkovorking.ru' });
+};
+
+
+
+exports.receive = async (req, res) => {
+ try {
+
+  const filePath = './public/uploads/data.txt';
+   const writeFile = await fs.appendFile(filePath, JSON.stringify(req.body));
+   //res.render('fail', { title: 'Оплата не Прошла'});
+   res.status(200).send();
+
+ } catch (e) {
+  res.render('error', {message:'Something went wrong'});
+ }
+
+}
 
