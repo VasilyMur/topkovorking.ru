@@ -15,10 +15,10 @@ block meta
 block content
   .inner
     .front-header
-      h1= `Все Коворкинги - ${tag} Округ`
+      h1= tagOriginal === 'moskva-siti' ? 'Коворкинги Москва Сити' : `Все Коворкинги - ${tag} Округ`
       ul
         li - Список всех коворкингов с указанием адреса, картой проезда, отзывами и рейтингом! 
-        li= `- ${tag} Округ - мы нашли для Вас ${count} coworking пространства.`
+        li= tagOriginal === 'moskva-siti' ? `- Москва Сити - мы нашли для Вас ${count} coworking пространства.` : `- ${tag} Округ - мы нашли для Вас ${count} coworking пространства.`
     ul.tags
       each t in tagsEng
         li.tag

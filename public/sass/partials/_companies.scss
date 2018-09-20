@@ -5,7 +5,7 @@
   ul li {
     list-style: none;
     line-height: 1.5;
-  }
+  } 
   .front-header-news {
     text-transform: uppercase;
     margin: 0;
@@ -19,10 +19,12 @@
   }
   .events-stream {
     border-top: 1px solid gray;
+    display: flex;
+    justify-content: space-around;
   }
     &__container {
       width: 70%;
-      margin: 7% auto 0;
+      margin: 5% auto 0;
       text-align: center;
       position: relative;
       z-index: 2;
@@ -72,6 +74,26 @@
         -webkit-transform: rotate(0.3deg);
         transform: rotate(0.3deg);
       }
+
+    }
+
+    .front-page-subhead {
+      text-align: left;
+      max-width: 400px;
+      margin: 0 auto;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      padding: 0 10px;
+    }
+
+    .front-page-subhead li {
+      list-style: none;
+    }
+    .front-page-subhead li:before {
+      content: '\25A0';
+      margin-right: 0.5rem;
+      color: #ffc600;
+      font-size: 20px;
     }
 
   p {
@@ -79,11 +101,6 @@
     line-height: 1.15;
     margin-bottom: 2rem;
   }
-
-  .front-page-subheading {
-    font-size: 2.5rem;
-  }
-
 }
 
 .what-is-coworking {
@@ -105,6 +122,28 @@
   padding: 0 !important;
 }
 
+.below-pagination {
+  h2 {
+    padding: 0 0 4px;
+    font-weight: 400;
+    display: inline-block;
+    border-bottom: 3px solid #FFC40E;
+    text-transform: uppercase;
+  }
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  p {
+    line-height: 2;
+    font-size: 1.6rem;
+  }
+  ul li::before {
+    content: '\25A0';
+    margin-right: 0.5rem;
+    color: #ffc600;
+    font-size: 20px;
+  }
+}
+
 .search__img__container {
   position: relative;
   min-height: 300px;
@@ -120,7 +159,7 @@
   top: 0;
   right: 0;
   background: #000;
-  opacity: 0.6;
+  opacity: 0.7;
   z-index: 1;
 }
 
@@ -145,9 +184,15 @@
 @media all and (max-width: 640px) {
   .front-header {
     margin-top: 0;
+    .events-stream {
+      display: block;
+    }
   }
   .front-header__container {
     width: 100%;
+  }
+  .welcome {
+    border-top: 5px solid #fff;
   }
 }
 
@@ -157,7 +202,7 @@
   }
 
   .search__img__container {
-    min-height: 400px;
+    min-height: 300px;
   }
 
   .front-header__container {

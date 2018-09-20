@@ -5,11 +5,29 @@
 }
 #map {
   height: 500px;
+  .gm-style-iw {
+    top: 15px !important;
+    left: 20px !important;
+  }
 }
 
 .popup {
-  width: 300px;
+  max-width: 220px;
   img {
     width: 100%;
+  }
+  p {
+    line-height: 1.2;
+    margin: 1rem 0;
+  }
+  .map-place-name {
+    font-weight: 400;
+    margin-top: 1.5rem;
+  }
+}
+
+@media all and (max-width: 640px) {
+  .map {
+    padding: 10px 5px;
   }
 }

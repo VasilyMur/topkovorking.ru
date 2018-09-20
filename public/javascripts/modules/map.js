@@ -43,7 +43,8 @@ function loadPlaces(map, lat = 55.7, lng = 37.6) {
       <div class="popup">
         <a href="/kovorking/${this.place.slug}">
           <img src="/uploads/${this.place.photo || 'kovorking-300x200.jpg'}" alt="${this.place.name}" />
-          <p>${this.place.name} - ${this.place.location.address}</p>
+          <p class="map-place-name">${this.place.name}</p>
+          <p class="map-place-address">${this.place.location.address}</p>
         </a>
       </div>
       `;

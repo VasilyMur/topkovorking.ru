@@ -32,7 +32,7 @@ router.post('/add/:id',
           companyController.resize,
           companyController.updateCompany
           );
-
+ 
 // Страница Компании
 //router.get('/companies/:slug', companyController.getCompanyBySlug);
 router.get('/kovorking/:slug', companyController.getCompanyBySlug);

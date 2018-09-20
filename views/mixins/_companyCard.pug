@@ -30,7 +30,8 @@ mixin companyCard(company = {})
         - const addressFinal = address.join(',')
         .company__details__container
           .company__details__container--address
-            a(href=`/metro/${company.subway.toLowerCase()}`)= `м. ${company.subway.charAt(0).toUpperCase() + company.subway.slice(1)}, `
+            // a(href=`/metro/${company.subway.toLowerCase()}`)= 
+            span= `м. ${company.subway.charAt(0).toUpperCase() + company.subway.slice(1)}, `
             span= addressFinal
           .company__details__container--price
             span= `${company.priceMin} - ${company.priceMax}`

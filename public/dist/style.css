@@ -447,7 +447,7 @@ body {
   color: #303030; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   letter-spacing: 0px;
@@ -685,7 +685,7 @@ pre.error {
     background: #fff;
     outline: 0;
     color: #303030;
-    border: 15px solid #303030; }
+    border: 20px solid #303030; }
   .search__result {
     padding: 10px;
     display: block;
@@ -963,7 +963,8 @@ select {
   display: flex;
   margin-bottom: 2rem;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
+      flex-wrap: wrap;
+  padding: 0 10px; }
 
 .tag {
   display: block;
@@ -1005,6 +1006,10 @@ select {
       .tag__link--active .tag__text {
         color: white;
         padding: 1rem 1rem; }
+  .tag a[href="/okrug/moskva-siti"] {
+    background: #F22613; }
+    .tag a[href="/okrug/moskva-siti"] .tag__text {
+      color: #fff; }
   .tag__text {
     padding: 1rem 1rem;
     display: block; }
@@ -1335,11 +1340,24 @@ select {
 
 #map {
   height: 500px; }
+  #map .gm-style-iw {
+    top: 15px !important;
+    left: 20px !important; }
 
 .popup {
-  width: 300px; }
+  max-width: 220px; }
   .popup img {
     width: 100%; }
+  .popup p {
+    line-height: 1.2;
+    margin: 1rem 0; }
+  .popup .map-place-name {
+    font-weight: 400;
+    margin-top: 1.5rem; }
+
+@media all and (max-width: 640px) {
+  .map {
+    padding: 10px 5px; } }
 
 .heart__button {
   background: none;
@@ -1660,10 +1678,15 @@ select {
     top: 3px;
     position: relative; }
   .front-header .events-stream {
-    border-top: 1px solid gray; }
+    border-top: 1px solid gray;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around; }
   .front-header__container {
     width: 70%;
-    margin: 7% auto 0;
+    margin: 5% auto 0;
     text-align: center;
     position: relative;
     z-index: 2;
@@ -1713,12 +1736,24 @@ select {
       -webkit-transform: rotate(0.3deg);
       -ms-transform: rotate(0.3deg);
           transform: rotate(0.3deg); }
+  .front-header .front-page-subhead {
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 0 10px; }
+  .front-header .front-page-subhead li {
+    list-style: none; }
+  .front-header .front-page-subhead li:before {
+    content: '\25A0';
+    margin-right: 0.5rem;
+    color: #ffc600;
+    font-size: 20px; }
   .front-header p {
     margin-top: 0;
     line-height: 1.15;
     margin-bottom: 2rem; }
-  .front-header .front-page-subheading {
-    font-size: 2.5rem; }
 
 .what-is-coworking {
   width: 100%;
@@ -1736,6 +1771,24 @@ select {
 .welcome {
   padding: 0 !important; }
 
+.below-pagination {
+  max-width: 800px;
+  margin: 0 auto 2rem; }
+  .below-pagination h2 {
+    padding: 0 0 4px;
+    font-weight: 400;
+    display: inline-block;
+    border-bottom: 3px solid #FFC40E;
+    text-transform: uppercase; }
+  .below-pagination p {
+    line-height: 2;
+    font-size: 1.6rem; }
+  .below-pagination ul li::before {
+    content: '\25A0';
+    margin-right: 0.5rem;
+    color: #ffc600;
+    font-size: 20px; }
+
 .search__img__container {
   position: relative;
   min-height: 300px;
@@ -1750,7 +1803,7 @@ select {
   top: 0;
   right: 0;
   background: #000;
-  opacity: 0.6;
+  opacity: 0.7;
   z-index: 1; }
 
 .front__single--img {
@@ -1771,14 +1824,18 @@ select {
 @media all and (max-width: 640px) {
   .front-header {
     margin-top: 0; }
+    .front-header .events-stream {
+      display: block; }
   .front-header__container {
-    width: 100%; } }
+    width: 100%; }
+  .welcome {
+    border-top: 5px solid #fff; } }
 
 @media all and (max-width: 520px) {
   .front-header {
     padding: 2rem 1rem; }
   .search__img__container {
-    min-height: 400px; }
+    min-height: 300px; }
   .front-header__container .front-page-heading {
     font-size: 3rem; } }
 

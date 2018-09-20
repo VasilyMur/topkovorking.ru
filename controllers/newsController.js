@@ -8,7 +8,7 @@ const promisify = require('es6-promisify');
   exports.getNews = async (req, res) => {
     try {
       const page = req.params.page || 1;
-      const limit = 5;
+      const limit = 2;
       const skip = (page * limit) - limit;
   
       // Query the DB for a list of all Companies
@@ -23,7 +23,6 @@ const promisify = require('es6-promisify');
   
       //Awit All Promises
       const [news, count] = await Promise.all([newsPromise, countPromise]);
-
     
       const pages = Math.ceil(count / limit);
       if (!news.length && skip) {

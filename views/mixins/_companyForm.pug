@@ -29,7 +29,7 @@ mixin companyForm(company = {})
     input(type="text" id="lng" name="location[coordinates][0]" value=(company.location && company.location.coordinates[0]) required)
     label(for="lat") Широта
     input(type="text" id="lat" name="location[coordinates][1]" value=(company.location && company.location.coordinates[1]) required)
-    - const choices = ['Центральный', 'Северный', 'Северо-Восточный', 'Восточный', 'Юго-Восточный', 'Южный', 'Юго-Западный', 'Западный', 'Северо-Западный', 'Зеленоградский']
+    - const choices = ['Центральный', 'Северный', 'Северо-Восточный', 'Восточный', 'Юго-Восточный', 'Южный', 'Юго-Западный', 'Западный', 'Северо-Западный', 'Зеленоградский', 'Москва Сити']
     - const tags = company.tags || []
     ul.tags
       each choice in choices

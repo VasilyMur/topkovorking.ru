@@ -49,8 +49,8 @@ exports.getCompanies = async (req, res) => {
     // News Promise
     const newsPromise = News
       .find()
-      .limit(4)
-      .sort({ date: 'asc' });
+      .limit(2)
+      .sort({ date: -1 });
 
     //Awit All Promises
     const [companies, count, news] = await Promise.all([companiesPromise, countPromise, newsPromise]);
@@ -71,8 +71,6 @@ exports.getCompanies = async (req, res) => {
         slg: slugify(tag._id).toLowerCase()
       }
     });
-
-
 
     res.render('companies', { companies, page, pages, count, tagsEng, news });
   } catch(e) {
@@ -113,6 +111,8 @@ exports.getCompaniesOkrug = async (req, res) => {
       tag = 'Северо-Восточный';
     } else if (tagOriginal === 'severo-zapadnyj') {
       tag = 'Северо-Западный';
+    } else if (tagOriginal === 'moskva-siti') {
+      tag = 'Москва Сити';
     }
 
 
@@ -149,7 +149,7 @@ exports.getCompaniesOkrug = async (req, res) => {
       }
     });
 
-
+ 
 
     res.render('pageOkrug', { tag, companies, tags, page, pages, tagOriginal, tagsEng, count });
 
@@ -254,6 +254,7 @@ exports.updateCompany = async (req, res) => {
 
 // Страница Компании
 exports.getCompanyBySlug = async (req, res, next) => {
+ 
   try {
     // * 3 - add .populate to get all author data instead of just ObjectId(used in Company Model)
     // ---> next Stop users that don't own a Company from Editing Companies --> Function Confirm Owner (used in editCompany)
@@ -266,7 +267,7 @@ exports.getCompanyBySlug = async (req, res, next) => {
     }
 
     const canonical = req.params.slug;
-
+ 
     res.render('company', { title: company.name, company, canonical });
   } catch(e) {
     res.render('error', {message:'Something went wrong'});

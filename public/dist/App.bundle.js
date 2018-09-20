@@ -2991,7 +2991,7 @@ var mapOptions = {
     markers.forEach(function (marker) {
       marker.addListener('click', function () {
 
-        var html = '\n      <div class="popup">\n        <a href="/kovorking/' + this.place.slug + '">\n          <img src="/uploads/' + (this.place.photo || 'kovorking-300x200.jpg') + '" alt="' + this.place.name + '" />\n          <p>' + this.place.name + ' - ' + this.place.location.address + '</p>\n        </a>\n      </div>\n      ';
+        var html = '\n      <div class="popup">\n        <a href="/kovorking/' + this.place.slug + '">\n          <img src="/uploads/' + (this.place.photo || 'kovorking-300x200.jpg') + '" alt="' + this.place.name + '" />\n          <p class="map-place-name">' + this.place.name + '</p>\n          <p class="map-place-address">' + this.place.location.address + '</p>\n        </a>\n      </div>\n      ';
         infoWindow.setContent(html);
         infoWindow.open(map, this);
       });

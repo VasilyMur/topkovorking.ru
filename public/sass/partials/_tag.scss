@@ -5,6 +5,7 @@
   display: flex;
   margin-bottom: 2rem;
   flex-wrap: wrap;
+  padding: 0 10px;
 }
 
 .tag {
@@ -45,7 +46,12 @@
       }
 
     }
-
+  }
+  a[href="/okrug/moskva-siti"]{
+    background: #F22613;
+    .tag__text {
+      color: #fff;
+    }
   }
   &__text {
     padding: 1rem 1rem;
