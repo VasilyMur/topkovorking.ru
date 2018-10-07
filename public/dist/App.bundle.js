@@ -1950,13 +1950,9 @@ var _subwayFront2 = _interopRequireDefault(_subwayFront);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _subway2.default)(document.querySelector('#subway'));
-
 (0, _subwayFront2.default)(document.querySelector('#subway__front'));
-
 (0, _autocomplete2.default)(document.querySelector('#address'), document.querySelector('#lat'), document.querySelector('#lng'));
-
 (0, _typeAhead2.default)(document.querySelector('.search'));
-
 (0, _map2.default)(document.querySelector('#map'));
 
 var heartForms = document.querySelectorAll('form.heart');

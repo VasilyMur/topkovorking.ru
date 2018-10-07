@@ -9,8 +9,8 @@ const companySchema = new mongoose.Schema({
   name: {
     type: String,
     trim: true,
-    required: 'Введите название школы',
-  },
+    required: 'Введите название коворкинга',
+  }, 
   subway: {
     type: String,
     trim: true,
@@ -23,6 +23,88 @@ const companySchema = new mongoose.Schema({
   priceMax: {
     type: String,
     trim: true
+  },
+  schedule: {
+    type: {
+      type: String,
+    },
+    monday: [{
+      type: String,
+      trim: true,
+      validate: {
+        validator: function(v) {
+          return /^\d{2}\:\d{2}$/i.test(v);
+        },
+        message: '{VALUE} Неверный Формат!'
+      },
+      required: [true, 'Введите Вемя!']
+    }],
+    tuesday: [{
+      type: String,
+      trim: true,
+      validate: {
+        validator: function(v) {
+          return /^\d{2}\:\d{2}$/i.test(v);
+        },
+        message: '{VALUE} Неверный Формат!'
+      },
+      required: [true, 'Введите Вемя!']
+    }],
+    wednesday: [{
+      type: String,      
+      trim: true,
+      validate: {
+        validator: function(v) {
+          return /^\d{2}\:\d{2}$/i.test(v);
+        },
+        message: '{VALUE} Неверный Формат!'
+      },
+      required: [true, 'Введите Вемя!']
+    }],
+    thursday: [{
+      type: String,
+      trim: true,
+      validate: {
+        validator: function(v) {
+          return /^\d{2}\:\d{2}$/i.test(v);
+        },
+        message: '{VALUE} Неверный Формат!'
+      },
+      required: [true, 'Введите Вемя!']
+    }],
+    friday: [{
+      type: String,
+      trim: true,
+      validate: {
+        validator: function(v) {
+          return /^\d{2}\:\d{2}$/i.test(v);
+        },
+        message: '{VALUE} Неверный Формат!'
+      },
+      required: [true, 'Введите Вемя!']
+    }],
+    saturday: [{
+      type: String,
+      trim: true,
+      validate: {
+        validator: function(v) {
+          return /^\d{2}\:\d{2}$/i.test(v);
+        },
+        message: '{VALUE} Неверный Формат!'
+      },
+      required: [true, 'Введите Вемя!']
+    }],
+    sunday: [{
+      type: String,
+      trim: true,
+      validate: {
+        validator: function(v) {
+          return /^\d{2}\:\d{2}$/i.test(v);
+        },
+        message: '{VALUE} Неверный Формат!'
+      },
+      required: [true, 'Введите Вемя!']
+    }],
   },
   slug: String,
   description: {

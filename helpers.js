@@ -1,7 +1,7 @@
 /*
   This is a file of data and helper functions that we can expose and use in our templating function
 */
-
+const moment = require('moment');
 
 exports.slugify = require('slugify');
 
@@ -28,3 +28,39 @@ exports.menu = [
   { slug: '/submit', title: 'Добавить', icon: 'add', },
   { slug: '/about', title: 'О нас', icon: 'store', },
 ];
+
+exports.engDate = () => {
+  moment.locale("en");
+  const today = new Date()
+  const day = moment(today).format('dddd').toLowerCase()
+  return day;
+}
+
+exports.schedule = (timeTable) => {
+
+  moment.locale("en")
+  const today = new Date()
+  const day = moment(today).format('dddd').toLowerCase()
+
+  const schedule = timeTable[day];
+  const numberFrom = parseInt(schedule[0].split(':')[0]);
+  const numberTo = parseInt(schedule[1].split(':')[0]);
+
+  const digits = Array.from({ length: 24 }, (res, i) => {
+    if (numberFrom === 0 && numberTo === 24) {
+      return `<div class="hour green">❚</div>`
+    } else {
+      if ((i + 1) < ( numberFrom)) {
+        return `<div class="hour red">❚</div>`
+      } 
+      if ( ((i + 1)  >= numberFrom) && i < numberTo -1 ) {
+        return `<div class="hour green">❚</div>`
+      } 
+      if ( i  >= numberTo - 1 ) {
+        return `<div class="hour red">❚</div>`
+      } 
+    }
+  }).join('')
+
+  return digits;
+}

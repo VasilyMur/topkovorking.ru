@@ -6,7 +6,7 @@ mixin companyForm(company = {})
     input(type="text" name="priceMin" value=company.priceMin)
     label(for="priceMax") Максимальная стоимость
     input(type="text" name="priceMax" value=company.priceMax)
-    .search__subway
+    .search__subway 
       label(for="subway") Метро
       input(type="text" id="subway" name="subway" autocomplete="off" value=company.subway)
       .search__results--subway
@@ -17,6 +17,18 @@ mixin companyForm(company = {})
     input(type="url" name="url" value=company.url placeholder="http://sitename.ru")
     label(for="tel") Телефон
     input(type="tel" name="tel" value=company.tel placeholder="7-495-555-5555")
+
+    //- WORK SCHEDULE
+    label Время работы
+    .date__container
+      -  const weekDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+      each day in weekDays
+        -const dayName = day.slice(0, 3);
+        .date__container--input
+          input(type="text" placeholder=`${dayName.charAt(0).toUpperCase() + dayName.slice(1)} start` id=`${day}From` name=`schedule[${day}][0]` value=(company.schedule && company.schedule[day][0]))
+          input(type="text" placeholder=`${dayName.charAt(0).toUpperCase() + dayName.slice(1)} end` id=`${day}To` name=`schedule[${day}][1]` value=(company.schedule && company.schedule[day][1]))
+          //- input(type="text" placeholder="Mon Start" id="mondayFrom" name="schedule[monday][0]" value=(company.schedule && company.schedule.monday[0]))
+
     //- Image Upload
     label(for="photo") Photo
       input(type="file" name="photo" id="photo" accept="image/jpg, image/jpeg, image/png")

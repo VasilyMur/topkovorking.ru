@@ -15,12 +15,14 @@
 .company {
   background:white;
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 120px 1fr;
   min-height: 160px;
   .companyTitle {
     font-size: 2rem;
     letter-spacing: 0.5px;
     margin-top: 0;
+    margin-bottom: 1rem;
   }
   .hash {
     color: #bbbcc4;
@@ -29,17 +31,12 @@
   }
   &__details {
     padding-left: 2rem;
-    flex: 2;
-    p {
-      line-height: 1.2;
-      font-size: 1.5rem;
-      margin: 1rem 0 0;
-    }
     &__container {
       display: flex;
-      justify-content: space-between;
-      font-size: 1.3rem;
+      flex-direction: column;
+      font-size: 1.4rem;
       &--address {
+        margin-bottom: 5px;
         a {
           border-bottom: none;
         }
@@ -47,6 +44,29 @@
           color: #ff4b33;
         }
       }
+      &--schedule {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(2px, 4px));
+        max-width: 100px;
+        margin-left: 5px;
+        .red {
+          color: #e50914;
+        }
+        .green {
+          color: #00e640;
+        }
+      }
+      &--dateAndTable {
+        display: flex;
+      }
+    }
+  }
+  &__text {
+    grid-column: span 2;
+    p {
+      line-height: 1.2;
+      font-size: 1.4rem;
+      margin: 1rem 0 0;
     }
   }
 
@@ -84,9 +104,8 @@
   position: relative;
   padding: 0 10px 0 10px;
   text-align: right;
-  flex: 1;
-  max-width: 160px;
-  max-height: 160px;
+  max-width: 120px;
+  height: 120px;
   &:before {
     display: block;
     content: '';
@@ -106,8 +125,8 @@
     //clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
   }
   img {
-    max-width: 160px;
-    height: 160px;
+    max-width: 120px;
+    height: 120px;
     top: 0;
     right: 0;
     position: absolute;

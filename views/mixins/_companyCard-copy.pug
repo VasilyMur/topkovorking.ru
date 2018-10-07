@@ -35,18 +35,5 @@ mixin companyCard(company = {})
             span= addressFinal
           .company__details__container--price
             span= `Стоимость: ${company.priceMin} - ${company.priceMax} (за 1 месяц)`
-          .company__details__container--dateAndTable
-            .company__details__container--date
-              - const rawDate = new Date();
-              - h.moment.locale("ru")
-              - const weekDay = h.moment(rawDate).format('dddd')
-              - const weekDayCap = weekDay.charAt(0).toUpperCase() + weekDay.slice(1)
-              - const time = company.schedule.monday.length ? `${company.schedule[h.engDate()][0]} - ${company.schedule[h.engDate()][1]}` : ''
-
-              span=  company.schedule.monday.length ? `${weekDayCap}: ${time}` : ''
-            .company__details__container--schedule
-              //- span= weekDay.charAt(0).toUpperCase() + weekDay.slice(1) 
-              != company.schedule.monday.length ? h.schedule(company.schedule) : ''
-      .company__text
-        != `${company.description.split(' ').slice(0, 27).join(' ')}....` 
-
+        .company__details__container--textdesc
+          != `${company.description.split(' ').slice(0, 25).join(' ')}....` 

@@ -760,6 +760,15 @@ select {
     margin-bottom: 2rem;
     border-bottom: 1px solid #e6e6e6; }
 
+.date__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minMax(80px, 1fr));
+  grid-gap: 10px;
+  margin: 0 0 2rem; }
+  .date__container--input input {
+    margin-bottom: 5px;
+    font-size: 1.5rem; }
+
 .calculator__container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1123,39 +1132,54 @@ select {
 .company {
   background: white;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: grid;
+  grid-template-columns: 120px 1fr;
   min-height: 160px; }
   .company .companyTitle {
     font-size: 2rem;
     letter-spacing: 0.5px;
-    margin-top: 0; }
+    margin-top: 0;
+    margin-bottom: 1rem; }
   .company .hash {
     color: #bbbcc4;
     font-size: 1.3rem;
     margin: 0; }
   .company__details {
-    padding-left: 2rem;
-    -webkit-box-flex: 2;
-        -ms-flex: 2;
-            flex: 2; }
-    .company__details p {
-      line-height: 1.2;
-      font-size: 1.5rem;
-      margin: 1rem 0 0; }
+    padding-left: 2rem; }
     .company__details__container {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: justify;
-          -ms-flex-pack: justify;
-              justify-content: space-between;
-      font-size: 1.3rem; }
-      .company__details__container--address a {
-        border-bottom: none; }
-      .company__details__container--address a:hover {
-        color: #ff4b33; }
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      font-size: 1.4rem; }
+      .company__details__container--address {
+        margin-bottom: 5px; }
+        .company__details__container--address a {
+          border-bottom: none; }
+        .company__details__container--address a:hover {
+          color: #ff4b33; }
+      .company__details__container--schedule {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(2px, 4px));
+        max-width: 100px;
+        margin-left: 5px; }
+        .company__details__container--schedule .red {
+          color: #e50914; }
+        .company__details__container--schedule .green {
+          color: #00e640; }
+      .company__details__container--dateAndTable {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; }
+  .company__text {
+    grid-column: span 2; }
+    .company__text p {
+      line-height: 1.2;
+      font-size: 1.4rem;
+      margin: 1rem 0 0; }
 
 .company__actions {
   position: relative;
@@ -1188,11 +1212,8 @@ select {
   position: relative;
   padding: 0 10px 0 10px;
   text-align: right;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  max-width: 160px;
-  max-height: 160px; }
+  max-width: 120px;
+  height: 120px; }
   .company__hero:before {
     display: block;
     content: '';
@@ -1205,8 +1226,8 @@ select {
     opacity: 0.6;
     z-index: 1; }
   .company__hero img {
-    max-width: 160px;
-    height: 160px;
+    max-width: 120px;
+    height: 120px;
     top: 0;
     right: 0;
     position: absolute;

@@ -188,8 +188,8 @@ exports.resize = async (req, res, next) => {
   };
 };
 
-
-
+ 
+ 
 // POST: Заполнили данные в разделе ADD и Нажали Submit - чтобы добавить Компанию
 exports.createCompany = async (req, res) => {
   try {
