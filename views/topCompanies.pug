@@ -24,9 +24,9 @@ block content
       each company, i in companies
         tr
           td
-            a(href=`/companies/${company.slug}`)
+            a(href=`/kovorking/${company.slug}`)
               img(width=200 src=`/uploads/${company.photo || 'company.jpg'}` alt=company.name)
           td #{i + 1}
-          td: a(href=`/companies/${company.slug}`)= company.name
+          td: a(href=`/kovorking/${company.slug}`)= company.name
           td= company.reviews.length
           td #{Math.round(company.averageRating * 10) / 10} / 5
