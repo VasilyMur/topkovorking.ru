@@ -43,7 +43,10 @@ mixin companyCard(company = {})
               - const weekDayCap = weekDay.charAt(0).toUpperCase() + weekDay.slice(1)
               - const time = company.schedule.monday.length ? `${company.schedule[h.engDate()][0]} - ${company.schedule[h.engDate()][1]}` : ''
 
-              span=  company.schedule.monday.length ? `${weekDayCap}: ${time}` : ''
+              - const roundTheClock = company.schedule.monday.length && company.schedule[h.engDate()][0] === "00:00" && company.schedule[h.engDate()][1] === "24:00" ? 'Круглосуточно' : time
+
+              span= company.schedule.monday.length ? `${weekDayCap}: ${roundTheClock}` : ''
+              //- span= `${company.schedule.monday.length} ? ${weekDayCap}: ${roundTheClock}` : ''
             .company__details__container--schedule
               //- span= weekDay.charAt(0).toUpperCase() + weekDay.slice(1) 
               != company.schedule.monday.length ? h.schedule(company.schedule) : ''
